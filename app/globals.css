@@ -15,6 +15,127 @@
   --accent: 155 50% 90%;
 }
 
+html.dark {
+  --background: 217 33% 17%;
+  --foreground: 210 40% 96%;
+  --card: 217 33% 22%;
+  --border: 217 33% 30%;
+  --input: 217 33% 25%;
+  --ring: 152 69% 45%;
+  --primary: 152 69% 45%;
+  --secondary: 217 33% 30%;
+  --muted: 217 33% 35%;
+  --accent: 155 50% 60%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.04);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-12px, 10px, 0) scale(1.02);
+  }
+}
+
+@keyframes floatSlower {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, -8px, 0) scale(1.03);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: floatSlow 10s ease-in-out infinite;
+  }
+  .animate-float-slower {
+    animation: floatSlower 12s ease-in-out infinite;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -25,12 +146,25 @@ body {
     radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 20%),
     hsl(var(--background));
   color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 20%),
+    hsl(var(--background));
 }
 
 * {
   border-color: hsl(var(--border));
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 ::selection {
   background: rgba(16, 185, 129, 0.2);
+}
+
+html.dark ::selection {
+  background: rgba(152, 197, 129, 0.3);
 }
