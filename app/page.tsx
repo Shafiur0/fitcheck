@@ -40,6 +40,12 @@ export default function LandingPage() {
                   </p>
                 </div>
 
+                <div className="flex flex-wrap gap-3 text-sm text-emerald-950/70 dark:text-emerald-50/70">
+                  <span className="rounded-full border border-emerald-200/80 bg-white/80 px-4 py-2 shadow-sm dark:border-emerald-500/20 dark:bg-slate-900/70">Designed by Shafiur Rahman Shafim</span>
+                  <span className="rounded-full border border-emerald-200/80 bg-white/80 px-4 py-2 shadow-sm dark:border-emerald-500/20 dark:bg-slate-900/70">Live theme switching</span>
+                  <span className="rounded-full border border-emerald-200/80 bg-white/80 px-4 py-2 shadow-sm dark:border-emerald-500/20 dark:bg-slate-900/70">Smooth motion UI</span>
+                </div>
+
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button asChild size="lg" className="group shadow-lg shadow-emerald-500/20">
                     <Link href="/sign-up">
@@ -128,7 +134,7 @@ export default function LandingPage() {
 function BadgeLine() {
   return (
     <span className="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50/90 px-4 py-2 text-sm font-medium text-emerald-800 shadow-sm backdrop-blur animate-pulse-soft dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
-      Zero-config Vercel deployment
+      Modern UI • Dark mode • Motion design
     </span>
   );
 }

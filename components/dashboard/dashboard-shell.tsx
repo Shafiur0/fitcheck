@@ -16,12 +16,12 @@ const navItems = [
 
 export function DashboardShell({ children, name, email }: { children: ReactNode; name?: string | null; email?: string | null }) {
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(236,253,245,0.7),rgba(255,255,255,0.95))]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.14),transparent_28%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.12),transparent_20%),linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.96))] dark:bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.1),transparent_28%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.06),transparent_20%),linear-gradient(180deg,rgba(2,6,23,0.92),rgba(15,23,42,0.98))]">
       <div className="absolute top-4 right-4 z-10 animate-fade-in">
         <ThemeToggle />
       </div>
       <div className="mx-auto grid min-h-screen max-w-7xl gap-6 p-4 lg:grid-cols-[280px_1fr] lg:p-6">
-        <aside className="rounded-3xl border border-emerald-100 bg-white/90 p-5 shadow-sm backdrop-blur animate-fade-in-up">
+        <aside className="rounded-3xl border border-emerald-100 bg-white/90 p-5 shadow-sm backdrop-blur animate-fade-in-up dark:border-white/10 dark:bg-slate-950/70">
           <div className="flex items-center gap-3">
             <div className="rounded-2xl bg-emerald-600 p-3 text-white shadow-soft">
               <Salad className="h-6 w-6" />
@@ -31,7 +31,7 @@ export function DashboardShell({ children, name, email }: { children: ReactNode;
               <p className="text-sm text-emerald-900/60">Your personal fitness hub</p>
             </div>
           </div>
-          <div className="mt-6 rounded-2xl bg-emerald-50 p-4 animate-scale-in">
+          <div className="mt-6 rounded-2xl bg-emerald-50 p-4 animate-scale-in dark:bg-emerald-500/10">
             <p className="text-xs uppercase tracking-[0.25em] text-emerald-700">Signed in</p>
             <p className="mt-1 font-medium text-emerald-950">{name ?? 'Member'}</p>
             <p className="text-sm text-emerald-900/70">{email ?? ''}</p>
@@ -40,7 +40,7 @@ export function DashboardShell({ children, name, email }: { children: ReactNode;
             {navItems.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium text-emerald-900 transition hover:bg-emerald-50 hover:shadow-sm hover:translate-x-1 animate-slide-in-left" style={{ animationDelay: `${idx * 50}ms` }}>
+                <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium text-emerald-900 transition hover:bg-emerald-50 hover:shadow-sm hover:translate-x-1 animate-slide-in-left dark:text-emerald-50 dark:hover:bg-white/5" style={{ animationDelay: `${idx * 50}ms` }}>
                   <Icon className="h-4 w-4 text-emerald-600" />
                   {item.label}
                 </Link>
@@ -50,6 +50,7 @@ export function DashboardShell({ children, name, email }: { children: ReactNode;
           <div className="mt-6 space-y-3">
             <Badge variant="secondary" className="w-fit animate-pulse-soft">Neon + Prisma</Badge>
             <Badge variant="outline" className="w-fit animate-pulse-soft">NextAuth secured</Badge>
+            <Badge variant="outline" className="w-fit animate-pulse-soft">Dark mode ready</Badge>
           </div>
           <div className="mt-6">
             <LogoutButton />

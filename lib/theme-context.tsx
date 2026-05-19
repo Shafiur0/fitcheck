@@ -28,11 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const applyTheme = (newTheme: Theme) => {
     const html = document.documentElement;
-    if (newTheme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
+    html.classList.toggle('dark', newTheme === 'dark');
     localStorage.setItem('theme', newTheme);
   };
 
