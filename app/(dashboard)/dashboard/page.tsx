@@ -37,12 +37,22 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Welcome back, {user?.name ?? 'athlete'}</CardTitle>
-          <CardDescription>Here is the current snapshot of your fitness journey.</CardDescription>
+      <Card className="overflow-hidden border-white/70 bg-white/80 shadow-[0_18px_60px_rgba(16,185,129,0.08)] dark:border-white/10 dark:bg-slate-950/55">
+        <CardHeader className="gap-4 border-b border-emerald-100/80 bg-gradient-to-r from-emerald-50 to-teal-50/60 dark:border-white/10 dark:from-emerald-500/10 dark:to-teal-500/5">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="rounded-full border border-emerald-200/80 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:border-emerald-500/20 dark:bg-slate-900/70 dark:text-emerald-300">
+              Live dashboard
+            </span>
+            <span className="rounded-full border border-emerald-200/80 bg-white/80 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/20 dark:bg-slate-900/70 dark:text-emerald-200">
+              Designed by Shafiur Rahman Shafim
+            </span>
+          </div>
+          <CardTitle className="text-3xl sm:text-4xl">Welcome back, {user?.name ?? 'athlete'}</CardTitle>
+          <CardDescription className="max-w-2xl text-base">
+            Here is the current snapshot of your fitness journey, refreshed with a more polished layout and smoother visual flow.
+          </CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-3">
+        <CardContent className="grid gap-4 p-6 md:grid-cols-3">
           <SummaryTile label="Logs" value={`${bmiLogs.length} BMI checks`} />
           <SummaryTile label="Latest category" value={latestCategory} />
           <SummaryTile label="Daily streak" value={`${weekStreak} weeks`} />
@@ -91,9 +101,9 @@ export default async function DashboardPage() {
 
 function SummaryTile({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-emerald-50 p-4">
-      <p className="text-xs uppercase tracking-wide text-emerald-700">{label}</p>
-      <p className="mt-2 text-lg font-semibold text-emerald-950">{value}</p>
+    <div className="rounded-2xl border border-emerald-100 bg-white/85 p-4 shadow-sm backdrop-blur transition-transform duration-200 hover:-translate-y-0.5 dark:border-white/10 dark:bg-slate-900/70">
+      <p className="text-xs uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">{label}</p>
+      <p className="mt-2 text-lg font-semibold text-emerald-950 dark:text-emerald-50">{value}</p>
     </div>
   );
 }
