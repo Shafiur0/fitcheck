@@ -1,0 +1,17 @@
+node_modules/
+.next/
+.vercel/
+.env.local
+.env*.local
+dist/
+coverage/
+*.log
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
